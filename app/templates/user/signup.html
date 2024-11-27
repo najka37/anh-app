@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="height: 100vh;">
+    <div class="card p-5" style="width: 100%; max-width: 600px; border-radius: 15px; box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);">
+        <h2 class="text-center mb-4" style="color: #2c3e50; font-weight: bold;">Create Your Account</h2>
+
+        <form id="signupForm">
+            <div class="alert alert-danger" role="alert" id="err_message" style="display: none;">
+                <!-- Error messages will appear here -->
+            </div>
+
+            <!-- Flex container for name fields -->
+            <div class="d-flex gap-3 mb-3">
+                <div class="form-group flex-grow-1">
+                    <label for="f_name" style="font-weight: 500;">First Name</label>
+                    <input type="text" class="form-control" id="f_name" placeholder="First name" required style="border-radius: 10px;">
+                </div>
+
+                <div class="form-group flex-grow-1">
+                    <label for="s_name" style="font-weight: 500;">Second Name</label>
+                    <input type="text" class="form-control" id="s_name" placeholder="Second name" required style="border-radius: 10px;">
+                </div>
+
+                <div class="form-group flex-grow-1">
+                    <label for="l_name" style="font-weight: 500;">Last Name</label>
+                    <input type="text" class="form-control" id="l_name" placeholder="Last name" required style="border-radius: 10px;">
+                </div>
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="phone_num" style="font-weight: 500;">Phone Number</label>
+                <input type="text" class="form-control" id="phone_num" placeholder="Enter your phone number" required style="border-radius: 10px;">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="email" style="font-weight: 500;">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email" required style="border-radius: 10px;">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="password" style="font-weight: 500;">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password" required style="border-radius: 10px;">
+                <small id="passwordHelpBlock" class="form-text text-muted">
+                    Your password must be at least 6 characters long.
+                </small>
+            </div>
+
+            <div class="form-group mb-4">
+                <label for="confirm_password" style="font-weight: 500;">Confirm Password</label>
+                <input type="password" class="form-control" id="confirm_password" placeholder="Confirm Password" required style="border-radius: 10px;">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block" style="background-color: #2980b9; border: none; border-radius: 10px; padding: 12px 0; font-size: 16px;" onclick="register_user(event)">Sign Up</button>
+        </form>
+
+        <div class="mt-4 text-center">
+            <a href="{{ url_for('signin') }}" class="text-muted" style="font-size: 14px;">Already have an account? Sign In</a>
+        </div>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/users/signup.js') }}"></script>
+{% endblock %}

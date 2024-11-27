@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Back to Dashboard Arrow -->
+        <div class="col-md-8 mb-3">
+            <a href="{{url_for('open_user_dashboard')}}" class="text-decoration-none">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+
+        <!-- Profile Information Section -->
+        <div class="col-md-8">
+            <div class="card shadow-sm p-4">
+                <div class="text-center">
+                    <!-- Profile Image -->
+                    <img src="{{url_for('static', filename='images/najka-2.jpg')}}" alt="Profile Picture" class="rounded-circle mb-3" style="width: 120px; height: 120px; object-fit: cover;">
+
+                    <!-- User Information -->
+                    <h3>{{ user.name }}</h3>
+                    <p class="text-muted">{{ user.email }}</p>
+
+                    <hr>
+
+                    <!-- Bio Section -->
+                    <h5>About Me</h5>
+                    <p class="text-muted">{{ user.bio or "This user hasn't added a bio yet." }}</p>
+                    
+                    <!-- Contact Information -->
+                    <h5>Contact Information</h5>
+                    <ul class="list-unstyled">
+                        <li><strong>Email:</strong> {{ user.email }}</li>
+                        <li><strong>Phone:</strong> {{ user.phone or "N/A" }}</li>
+                        <li><strong>Location:</strong> {{ user.location or "N/A" }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Edit Profile Button -->
+            <div class="text-center mt-4">
+                <a href="{{url_for('settings')}}" class="btn btn-primary">Edit Profile</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

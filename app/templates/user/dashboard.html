@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<style>
+    .card {
+        border-radius: 10px;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .rounded-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .nav-link {
+        padding: 10px;
+        border-radius: 5px;
+    }
+
+    .nav-link:hover {
+        background-color: #f0f0f0;
+        transition: background-color 0.3s ease;
+    }
+
+    .fa-2x {
+        font-size: 2rem;
+    }
+
+    .list-group-item {
+        border: none;
+        padding: 15px;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Sidebar Section -->
+        <div class="col-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <img src="/static/images/najka-2.jpg" class="rounded-circle mb-3" alt="User Avatar">
+                    <h4>{{ name }}</h4>
+                    <p class="text-muted">{{ email }}</p>
+                    <hr>
+                    <ul class="nav flex-column">
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-dark" href="{{url_for('open_user_dashboard')}}">Dashboard</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-dark" href="{{url_for('profile')}}">My Profile</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-dark" href="{{url_for('settings')}}">Settings</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <!-- <a class="nav-link text-dark" href="#">Logout</a> -->
+                            <!-- Logout button -->
+                            <a href="/logout" class="btn btn-danger">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="col-md-9">
+            <div class="card shadow-sm mb-4">
+                <div class="card-body">
+                    <h4 class="card-title">Welcome, {{ name }}!</h4>
+                    <p class="card-text">Here is a summary of your recent activity and quick access to your profile settings and updates.</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Example of Cards Section -->
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-tasks fa-2x text-primary mb-3"></i>
+                            <h5 class="card-title">Tasks Completed</h5>
+                            <p class="card-text">You have completed 10 tasks this week.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-calendar-alt fa-2x text-success mb-3"></i>
+                            <h5 class="card-title">Upcoming Events</h5>
+                            <p class="card-text">You have 3 events scheduled for next week.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="card shadow-sm text-center">
+                        <div class="card-body">
+                            <i class="fas fa-chart-line fa-2x text-danger mb-3"></i>
+                            <h5 class="card-title">Progress</h5>
+                            <p class="card-text">You are 75% complete with your current goals.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Example of Notifications Section -->
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Notifications</h5>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <i class="fas fa-check-circle text-success"></i> Your recent task was completed successfully!
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-info-circle text-info"></i> Reminder: You have a meeting tomorrow at 3 PM.
+                        </li>
+                        <li class="list-group-item">
+                            <i class="fas fa-exclamation-triangle text-warning"></i> Your password will expire in 7 days.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

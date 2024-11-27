@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Welcome Section -->
+<div class="container d-flex justify-content-center align-items-center" style="height: 80vh;">
+    <div class="text-center">
+        <h1 class="display-3 text-white mb-4">Welcome to ANH Team</h1>
+        <p class="lead text-white mb-4">We are a dynamic team working on innovative projects. Learn more about our mission, vision, and the exciting work we are doing.</p>
+        <a class="btn btn-success btn-lg" href="{{ url_for('about') }}" role="button">Learn more about us</a>
+    </div>
+</div>
+
+<!-- Team Introduction Section -->
+<div class="container my-5 text-center">
+    <h2 class="mb-4 text-white">Meet the Team</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/static/images/najka-1.jpg" alt="Abdinajib" class="rounded-circle mb-3" width="150">
+            <h4 class="text-white">Abdinajib</h4>
+            <p class="text-white">Team Developer</p>
+        </div>
+        <div class="col-md-4">
+            <img src="/static/images/nasteha.jpg" alt="Nasteha" class="rounded-circle mb-3" width="150">
+            <h4 class="text-white">Nasteha</h4>
+            <p class="text-white">Project Manager</p>
+        </div>
+        <div class="col-md-4">
+            <img src="/static/images/hafsa.jpg" alt="Hafsa" class="rounded-circle mb-3" width="150">
+            <h4 class="text-white">Hafsa</h4>
+            <p class="text-white">UX/UI Designer</p>
+        </div>
+    </div>
+</div>
+
+<!-- Call to Action Section -->
+<div class="container text-center py-5" style="background-color: #f8f9fa;">
+    <h2 class="mb-4">Get Involved with Us</h2>
+    <p class="lead">Interested in collaborating with us? We'd love to hear from you.</p>
+    <a class="btn btn-primary btn-lg" href="{{ url_for('contact') }}" role="button">Contact Us</a>
+</div>
+
+<!-- Testimonials or Social Media Section (Optional) -->
+<div class="container text-center my-5">
+    <h2 class="mb-4 text-white" >Connect with Us</h2>
+    <div>
+        <a href="https://facebook.com" class="text-white mr-3"><i class="fab fa-facebook fa-2x"></i></a>
+        <a href="https://twitter.com" class="text-white mr-3"><i class="fab fa-twitter fa-2x"></i></a>
+        <a href="https://wa.me/615374914" class="text-white"><i class="fab fa-whatsapp fa-2x"></i></a>
+        
+    </div>
+    
+    
+</div>
+{% endblock %}

@@ -1,0 +1,23 @@
+body {
+    background-color: #181818;;
+    font-family: 'Arial', sans-serif;
+}
+.nav-link:hover {
+    color: #28a745 !important; /* Green hover color */
+    transition: color 0.3s ease;
+}
+.btn-outline-light:hover {
+    background-color: #fff !important;
+    color: #181818 !important;
+    transition: background-color 0.3s ease;
+}
+
+
+.jumbotron {
+    background-color: #f8f9fa;
+    padding: 2rem 2rem;
+}
+
+footer {
+    padding: 10px 0;
+}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <!-- Back to Dashboard Arrow -->
+        <div class="col-md-8 mb-3">
+            <a href="{{url_for('open_user_dashboard')}}" class="text-decoration-none">
+                <i class="fas fa-arrow-left"></i> Back to Dashboard
+            </a>
+        </div>
+
+        <!-- Settings Form -->
+        <div class="col-md-8">
+            <div class="card shadow-sm p-4">
+                <h3 class="text-center mb-4">Account Settings</h3>
+
+                <form action="/update_settings" method="POST">
+                    <!-- Update Email Section -->
+                    <div class="form-group">
+                        <label for="email">Update Email</label>
+                        <input type="email" class="form-control" id="email" name="email" value="{{ user.email }}" required>
+                    </div>
+
+                    <!-- Update Password Section -->
+                    <div class="form-group mt-4">
+                        <label for="current_password">Current Password</label>
+                        <input type="password" class="form-control" id="current_password" name="current_password" required>
+                    </div>
+                    <div class="form-group mt-2">
+                        <label for="new_password">New Password</label>
+                        <input type="password" class="form-control" id="new_password" name="new_password">
+                    </div>
+
+                    <!-- Notification Preferences -->
+                    <div class="form-group mt-4">
+                        <label for="notifications">Email Notifications</label>
+                        <select class="form-control" id="notifications" name="notifications">
+                            <option value="enabled" {% if user.notifications == "enabled" %}selected{% endif %}>Enabled</option>
+                            <option value="disabled" {% if user.notifications == "disabled" %}selected{% endif %}>Disabled</option>
+                        </select>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary">Save Settings</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
